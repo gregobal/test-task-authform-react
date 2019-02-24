@@ -1,0 +1,12 @@
+.radio-group {
+    box-sizing: border-box;
+    width: 368px;
+    margin: 8px auto;
+    padding: 8px;
+    text-align: center;
+    background-color: white;
+}
+
+.radio-group label {
+    margin-right: 16px;
+}
