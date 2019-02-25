@@ -5,6 +5,8 @@ import Input from './input'
 import Label from './label'
 import {DoneIcon, LockIcon} from './icon'
 
+import themes from './themes';
+
 const TextInput = ({id, label, disabled, onValidate, size, theme}) => {
   const [filled, setFilled] = useState(false);
   const [valid, setValid] = useState(true);
@@ -31,7 +33,7 @@ const TextInput = ({id, label, disabled, onValidate, size, theme}) => {
   return (
     <Wrapper size={size}>
       <Input id={id}
-             theme={theme}
+             theme={themes[theme]}
              size={size}
              onChange={handleInputChange}
              onBlur={handleInputBlur}
@@ -39,7 +41,7 @@ const TextInput = ({id, label, disabled, onValidate, size, theme}) => {
              valid={valid}
              disabled={disabled}/>
       <Label htmlFor={id}
-             theme={theme}
+             theme={themes[theme]}
              size={size}
              labelUp={filled}
              valid={valid}>

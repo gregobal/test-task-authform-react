@@ -1,32 +1,31 @@
 import styled from 'styled-components'
 
-import themes from './themes';
-
 const Input = styled.input`    
   width: 100%;
+  text-align: left;
   padding: ${({size}) => size === 'normal' ? '8px' : '12px'} 12px;
-  color: ${({theme}) => themes[theme].color};
-  background-color: ${({filled, theme}) => filled ? 
-    themes[theme].background.filled :
-      themes[theme].background.empty };
+  color: ${({theme}) => theme.color};
+  background-color: ${({filled, theme}) => filled ?
+    theme.background.filled :
+      theme.background.empty };
   border: 1px solid transparent;
   border-radius: 2px;
   border-bottom: 1px solid ${({filled, valid, theme}) =>
-    filled && valid ? themes[theme].border.filled :
-      valid ? themes[theme].border.valid :
-        themes[theme].border.invalid};  
+    filled && valid ? theme.border.filled :
+      valid ? theme.border.valid :
+        theme.border.invalid};  
     
   :hover {
-    background-color: ${({theme}) => themes[theme].hover.background};
-    border-bottom: 1px solid ${({theme}) => themes[theme].hover.border};
+    background-color: ${({theme}) => theme.hover.background};
+    border-bottom: 1px solid ${({theme}) => theme.hover.border};
   }
   
   :focus {
     outline: none;
-    background-color: ${({theme}) => themes[theme].focus.background};
+    background-color: ${({theme}) => theme.focus.background};
     border-bottom: 2px solid ${({valid, theme}) => 
-      valid ? themes[theme].focus.border.valid :
-        themes[theme].focus.border.invalid};
+      valid ? theme.focus.border.valid :
+        theme.focus.border.invalid};
   }
   
   :active {
@@ -35,8 +34,8 @@ const Input = styled.input`
   
   :disabled {
     color: #F8F8F8;
-    border-bottom: 1px solid ${({theme}) => themes[theme].disabled.border};    
-    background-color: ${({theme}) => themes[theme].disabled.background};        
+    border-bottom: 1px solid ${({theme}) => theme.disabled.border};    
+    background-color: ${({theme}) => theme.disabled.background};        
   }
   
   ::-ms-clear {
