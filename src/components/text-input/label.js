@@ -5,8 +5,8 @@ import Input from './input'
 const Label = styled.label`
   position: absolute;
   pointer-events: none;
-  top: ${({labelUp, size}) => labelUp ? "-16px" : 
-    size === 'normal' ? "8px" : 
+  top: ${({labelUp, theme}) => labelUp ? "-16px" :
+    theme.size === 'normal' ? "8px" : 
       "12px"}};
   left: ${({labelUp}) => labelUp ? "0" : "12px"};
   line-height: ${({labelUp}) => labelUp ? "16px" : "24px"};

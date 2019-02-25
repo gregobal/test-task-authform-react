@@ -4,7 +4,7 @@ const Wrapper = styled.div`
   position: relative;
   display: flex;  
   box-sizing: border-box;  
-  height: ${({size}) => size === 'normal' ? '40px' : '48px'};
+  height: ${({theme}) => theme.size === 'normal' ? '40px' : '48px'};
   margin: 16px;
   font-family: "Roboto", sans-serif;
   font-style: normal;

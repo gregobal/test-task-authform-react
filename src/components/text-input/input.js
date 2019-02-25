@@ -3,7 +3,7 @@ import styled from 'styled-components'
 const Input = styled.input`    
   width: 100%;
   text-align: left;
-  padding: ${({size}) => size === 'normal' ? '8px' : '12px'} 12px;
+  padding: ${({theme}) => theme.size === 'normal' ? '8px' : '12px'} 12px;
   color: ${({theme}) => theme.color};
   background-color: ${({filled, theme}) => filled ?
     theme.background.filled :

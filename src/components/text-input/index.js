@@ -1,4 +1,5 @@
 import React, {useState} from 'react'
+import {ThemeProvider} from 'styled-components'
 
 import Wrapper from './wrapper'
 import Input from './input'
@@ -16,9 +17,7 @@ const TextInput = ({id, label, disabled, onValidate, size, theme}) => {
 
   const isFilled = event => event.target.value !== '';
 
-  const handleInputChange = event => {
-    setViewRightIcon(false);
-
+  const handleInput = event => {
     setFilled(isFilled(event));
 
     if (onValidate instanceof Function) {
@@ -26,29 +25,35 @@ const TextInput = ({id, label, disabled, onValidate, size, theme}) => {
     }
   };
 
+  const handleInputChange = event => {
+    handleInput(event);
+
+    setViewRightIcon(false);
+  };
+
   const handleInputBlur = event => {
+    handleInput(event);
+
     setViewRightIcon(true);
   };
 
   return (
-    <Wrapper size={size}>
-      <Input id={id}
-             theme={themes[theme]}
-             size={size}
-             onChange={handleInputChange}
-             onBlur={handleInputBlur}
-             filled={filled}
-             valid={valid}
-             disabled={disabled}/>
-      <Label htmlFor={id}
-             theme={themes[theme]}
-             size={size}
-             labelUp={filled}
-             valid={valid}>
-        {label}
-      </Label>
-      {viewRightIcon && rightIcon}
-    </Wrapper>
+    <ThemeProvider theme={{...themes[theme], size}}>
+      <Wrapper >
+        <Input id={id}
+               onChange={handleInputChange}
+               onBlur={handleInputBlur}
+               filled={filled}
+               valid={valid}
+               disabled={disabled}/>
+        <Label htmlFor={id}
+               labelUp={filled}
+               valid={valid}>
+          {label}
+        </Label>
+        {viewRightIcon && rightIcon}
+      </Wrapper>
+    </ThemeProvider>
   )
 };
 
