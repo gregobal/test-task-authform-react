@@ -24,4 +24,4 @@
 
 Путь к собранному проекту '/build/'
 
-Собранное приложение на хостинге: https://810411.github.io/test-task-authform-react
+Собранное приложение на хостинге: https://810411.github.io/authform-react/
